@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": true,
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "inlineSources": true,
     "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    }
-  },
-  "include": [
-    "src/**/*"
-  ]
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "jsx": "react",
+    "jsxFactory": "createElement"
+  }
 }
