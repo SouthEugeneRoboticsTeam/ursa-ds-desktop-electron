@@ -1,3 +1,3 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+let h1 = document.createElement("h1");
+h1.appendChild(document.createTextNode("Hello, world!"));
+document.body.appendChild(h1);

@@ -1,14 +1,15 @@
 {
   "name": "electron-quick-start-typescript",
   "version": "1.0.0",
-  "description": "A minimal Electron application written with Typescript",
+  "description": "A desktop application for controlling URSA units.",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
+    "electron": "electron ./dist/main.js",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "npm-run-all --parallel watch electron"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "repository": "https://github.com/SouthEugeneRoboticsTeam/ursa-ds-desktop",
   "keywords": [
     "Electron",
     "quick",
@@ -17,11 +18,17 @@
     "demo",
     "typescript"
   ],
-  "author": "GitHub",
+  "author": "Aidan Heller",
   "license": "CC0-1.0",
   "devDependencies": {
+    "concurrently": "^4.1.1",
     "electron": "^2.0.2",
     "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "electron-reload": "^1.4.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+
   }
 }
