@@ -2,6 +2,11 @@
   "name": "ursa-ds-desktop",
   "version": "0.0.0",
   "license": "MIT",
+  "electronWebpack": {
+    "renderer": {
+      "webpackConfig": "webpack.renderer.additions.js"
+    }
+  },
   "scripts": {
     "start": "electron-webpack dev",
     "build": "electron-webpack",

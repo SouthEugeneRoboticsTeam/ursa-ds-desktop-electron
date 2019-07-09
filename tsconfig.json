@@ -14,6 +14,10 @@
     "newLine": "lf",
     "noEmitOnError": true,
     "jsx": "react",
-    "jsxFactory": "createElement"
+    "jsxFactory": "createElement",
+    "baseUrl": "src",
+    "paths": {
+      "@renderer/*": ["renderer/*"]
+    }
   }
 }
