@@ -17,7 +17,8 @@
     "jsxFactory": "createElement",
     "baseUrl": "src",
     "paths": {
-      "@renderer/*": ["renderer/*"]
+      "@renderer/*": ["renderer/*"],
+      "@components/*": ["renderer/components/*"]
     }
   }
 }
