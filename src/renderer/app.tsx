@@ -11,7 +11,7 @@ const styles = (theme: Theme) => createStyles({
 
 const App = ({ classes }: WithStyles<typeof styles>) => (
     <Grid container>
-        <Grid item xs={12} sm={8} lg={4} xl={2} >
+        <Grid item xs={12} sm={8}>
             <Paper className={classes.paper}>
                 <StatusBar />
             </Paper>

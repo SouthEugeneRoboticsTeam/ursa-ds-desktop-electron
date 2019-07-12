@@ -4,7 +4,8 @@ import { SvgIconComponent } from '@material-ui/icons'
 
 const styles = (theme: Theme) => createStyles({
     root: {
-        width: theme.spacing(12)
+        width: theme.spacing(12),
+        margin: theme.spacing(1)
     },
     iconBox: {
         width: theme.spacing(12),
