@@ -1,22 +1,25 @@
 import { createElement } from 'react';
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/styles'
 import { Grid, Paper, Theme } from '@material-ui/core';
 import StatusBar from '@components/StatusBar';
 
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     paper: {
         padding: theme.spacing(1),
     }
-});
+}));
 
-const App = ({ classes }: WithStyles<typeof styles>) => (
-    <Grid container>
-        <Grid item xs={12} sm={8}>
-            <Paper className={classes.paper}>
-                <StatusBar />
-            </Paper>
+const App = () => {
+    const classes = useStyles();
+    return (
+        <Grid container>
+            <Grid item xs={12} sm={8}>
+                <Paper className={classes.paper}>
+                    <StatusBar />
+                </Paper>
+            </Grid>
         </Grid>
-    </Grid>
-);
+    );
+};
 
-export default withStyles(styles)(App);
+export default App;

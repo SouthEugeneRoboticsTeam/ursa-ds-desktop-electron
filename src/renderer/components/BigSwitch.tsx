@@ -1,8 +1,8 @@
 import { createElement } from 'react';
-import { createStyles, withStyles, WithStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/styles'
 import { Box, Theme, Button } from '@material-ui/core';
 
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     root: {
         width: theme.spacing(36),
         height: theme.spacing(12),
@@ -26,30 +26,33 @@ const styles = (theme: Theme) => createStyles({
         borderBottomLeftRadius: 0,
         textColor: 'black'
     },
-});
+}));
 
-const BigSwitch = ({ classes, value, trueAlias, falseAlias, trueColor, falseColor }: BigSwitchProps) => (
-    <Box className={classes.root}>
-        <Button
-            variant="contained"
-            disabled={!value}
-            className={classes.trueButton}
-            style={{ backgroundColor: value ? trueColor : '#e3e3e3' }}
-        >
-            {trueAlias}
-        </Button>
-        <Button
-            variant="contained"
-            disabled={value}
-            className={classes.falseButton}
-            style={{ backgroundColor: value ? '#e3e3e3' : falseColor }}
-        >
-            {falseAlias}
-        </Button>
-    </Box>
-);
+const BigSwitch = ({ value, trueAlias, falseAlias, trueColor, falseColor }: BigSwitchProps) => {
+    const classes = useStyles();
+    return (
+        <Box className={classes.root}>
+            <Button
+                variant="contained"
+                disabled={!value}
+                className={classes.trueButton}
+                style={{ backgroundColor: value ? trueColor : '#e3e3e3' }}
+            >
+                {trueAlias}
+            </Button>
+            <Button
+                variant="contained"
+                disabled={value}
+                className={classes.falseButton}
+                style={{ backgroundColor: value ? '#e3e3e3' : falseColor }}
+            >
+                {falseAlias}
+            </Button>
+        </Box>
+    );
+};
 
-interface BigSwitchProps extends WithStyles<typeof styles> {
+interface BigSwitchProps {
     value: boolean
     setState: (state: boolean) => void
     trueAlias: string
@@ -58,4 +61,4 @@ interface BigSwitchProps extends WithStyles<typeof styles> {
     falseColor: string
 }
 
-export default withStyles(styles)(BigSwitch)
+export default BigSwitch
