@@ -1,8 +1,9 @@
 import { createElement } from 'react';
-import { createStyles, WithStyles, withStyles, Box, Theme, Typography } from '@material-ui/core';
+import { Box, Theme, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import { SvgIconComponent } from '@material-ui/icons'
 
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     root: {
         width: theme.spacing(12),
         margin: theme.spacing(1)
@@ -15,29 +16,32 @@ const styles = (theme: Theme) => createStyles({
     label: {
         textAlign: 'center'
     }
-});
+}));
 
-const Display = ({ classes, label, color, Icon }: ValueDisplayProps) => (
-    <Box className={classes.root}>
-        <Box
-            className={classes.iconBox}
-            style={{ backgroundColor: color }}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-        >
-            <Icon fontSize="large" />
+const Display = ({ label, color, Icon }: ValueDisplayProps) => {
+    const classes = useStyles();
+    return (
+        <Box className={classes.root}>
+            <Box
+                className={classes.iconBox}
+                style={{ backgroundColor: color }}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Icon fontSize="large" />
+            </Box>
+            <Typography variant="caption" component="p" className={classes.label}>
+                {label}
+            </Typography>
         </Box>
-        <Typography variant="caption" component="p" className={classes.label}>
-            {label}
-        </Typography>
-    </Box>
-);
+    );
+};
 
-interface ValueDisplayProps extends WithStyles<typeof styles> {
+interface ValueDisplayProps {
     label: string
     color: string
     Icon: SvgIconComponent
 }
 
-export default withStyles(styles)(Display);
+export default Display;
